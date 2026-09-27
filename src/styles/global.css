@@ -1,0 +1,211 @@
+/* Design System */
+:root {
+  /* Coffee-inspired color palette - inspired by Peets */
+  --color-cream: #f9f6f1;
+  --color-espresso: #1a1614;
+  --color-coffee-brown: #4a3f37;
+  --color-warm-beige: #d4c5b9;
+  --color-accent: #8b6f47;
+  --color-rich-brown: #3d2817;
+  --color-light-tan: #e8dfd6;
+
+  /* Typography */
+  --font-serif: 'Merriweather', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+
+  /* Spacing - more generous like Peets */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-xl: 4rem;
+  --spacing-2xl: 5rem;
+  --spacing-3xl: 6rem;
+
+  /* Max content width */
+  --max-width: 1400px;
+
+  /* Transitions */
+  --transition-smooth: 0.3s ease-in-out;
+}
+
+/* Dark mode fallback (light theme as default) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-cream: #1a1815;
+    --color-espresso: #f5f1eb;
+    --color-coffee-brown: #c8b8ad;
+    --color-warm-beige: #4a3f38;
+    --color-accent: #d4a574;
+  }
+}
+
+/* Force light theme if specified */
+:root[data-theme="light"] {
+  --color-cream: #faf8f3;
+  --color-espresso: #2b2520;
+  --color-coffee-brown: #6f5d54;
+  --color-warm-beige: #d4c5b9;
+  --color-accent: #a17857;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-espresso);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-espresso);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--color-coffee-brown);
+}
+
+/* Buttons - Peets inspired */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-espresso);
+  background: transparent;
+  color: var(--color-espresso);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+  border-radius: 0;
+  font-family: var(--font-sans);
+  gap: var(--spacing-xs);
+}
+
+.btn:hover {
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  border-color: var(--color-espresso);
+}
+
+.btn-primary:hover {
+  background: var(--color-rich-brown);
+  border-color: var(--color-rich-brown);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Container - generous padding inspired by Peets */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+/* Section spacing - generous vertical space */
+section {
+  padding: var(--spacing-3xl) 0;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: var(--spacing-2xl) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  section {
+    padding: var(--spacing-lg) 0;
+  }
+}

@@ -1,0 +1,54 @@
+.cta {
+  background: var(--color-espresso);
+  color: var(--color-cream);
+  text-align: center;
+  padding: var(--spacing-2xl) 0;
+}
+
+.cta-content {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.cta h2 {
+  color: var(--color-cream);
+  margin-bottom: var(--spacing-xl);
+}
+
+.cta address {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-warm-beige);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+  font-style: normal;
+}
+
+.cta strong {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta .btn {
+  border-color: var(--color-cream);
+  color: var(--color-cream);
+  margin-top: var(--spacing-md);
+}
+
+.cta .btn:hover {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+}
+
+@media (max-width: 640px) {
+  .cta {
+    padding: var(--spacing-xl) 0;
+  }
+
+  .cta h2 {
+    font-size: 1.75rem;
+  }
+
+  .cta address {
+    font-size: 1rem;
+  }
+}
